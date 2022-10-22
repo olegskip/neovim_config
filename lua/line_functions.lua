@@ -1,11 +1,11 @@
 local line_functions = {}
 
 function line_functions.insert_line_above()
-  vim.api.nvim_put({''}, 'l', false, false)
+  vim.api.nvim_put({''}, 'l', false, false) -- todo: add indentation support
 end
 
 function line_functions.insert_line_below()
-  vim.api.nvim_put({''}, 'l', true, false)
+  vim.api.nvim_put({''}, 'l', true, false) -- todo: add indentation support
 end
 
 function line_functions.swap_with_line_above()
