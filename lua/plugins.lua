@@ -71,6 +71,7 @@ return require('packer').startup(function()
   local keymap = vim.api.nvim_set_keymap
   keymap('n','<F2>', ':NvimTreeToggle<cr>', opts)
 
+  keymap('n','<Esc>', '', opts) -- otherwise <Esc> triggers <C-[> for some reason(remaping insert_line_above to another key works as well)
   keymap('','<C-[>', ':lua require "line_functions".insert_line_above()<cr>', opts)
   keymap('','<C-]>', ':lua require "line_functions".insert_line_below()<cr>', opts)
 
