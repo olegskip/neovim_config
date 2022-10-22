@@ -77,6 +77,8 @@ return require('packer').startup(function()
   keymap('','<C-Up>', ':lua require "line_functions".swap_with_line_above()<cr>', opts)
   keymap('','<C-Down>', ':lua require "line_functions".swap_with_line_below()<cr>', opts)
 
+  keymap('','<C-z>', ':undo<cr>', opts)
+
   use 'sakhnik/nvim-gdb'
 
   vim.g.termguicolors = true
