@@ -8,6 +8,9 @@ return require('packer').startup(function()
 
   use 'github/copilot.vim'
 
+  use 'numToStr/Comment.nvim'
+  require('Comment').setup()
+
   -- use('tpope/vim-unimpaired')
   use 'vim-airline/vim-airline' -- status bar
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'} -- tabline
