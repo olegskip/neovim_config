@@ -84,10 +84,20 @@ _G.packer_plugins = {
     path = "/home/skip/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
-  ["mapx.nvim"] = {
+  ["copilot.vim"] = {
     loaded = true,
-    path = "/home/skip/.local/share/nvim/site/pack/packer/start/mapx.nvim",
-    url = "https://github.com/b0o/mapx.nvim"
+    path = "/home/skip/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/skip/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["nvim-gdb"] = {
+    loaded = true,
+    path = "/home/skip/.local/share/nvim/site/pack/packer/start/nvim-gdb",
+    url = "https://github.com/sakhnik/nvim-gdb"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -118,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/skip/.local/share/nvim/site/pack/packer/start/vim-airline",
     url = "https://github.com/vim-airline/vim-airline"
+  },
+  ["vim-code-dark"] = {
+    loaded = true,
+    path = "/home/skip/.local/share/nvim/site/pack/packer/start/vim-code-dark",
+    url = "https://github.com/tomasiser/vim-code-dark"
   }
 }
 

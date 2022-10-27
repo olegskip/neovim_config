@@ -6,6 +6,8 @@ return require('packer').startup(function()
   use {'neoclide/coc.nvim', branch = 'release'} -- dropout menu and many ide features needs nodejs, uses(i configured) lsp server ccls
   require('coc_nvim_loader')
 
+  use 'github/copilot.vim'
+
   -- use('tpope/vim-unimpaired')
   use 'vim-airline/vim-airline' -- status bar
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'} -- tabline
@@ -75,6 +77,9 @@ return require('packer').startup(function()
   vim.keymap.set({'i', 'n'}, '<C-L>', function() require "line_functions".insert_line_below() end)
   vim.keymap.set({'i', 'n'}, '<C-UP>', function() require "line_functions".swap_with_line_above() end)
   vim.keymap.set({'i', 'n'}, '<C-DOWN>', function() require "line_functions".swap_with_line_below() end)
+
+  vim.g.copilot_no_tab_map = true
+  vim.api.nvim_set_keymap("i", "<C-\\>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
   keymap('','<C-z>', ':undo<cr>', opts)
 
