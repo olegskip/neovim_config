@@ -2,6 +2,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   vim.cmd('set guicursor= ')-- to prevent changing cursor when exiting nvim
+  vim.opt.termguicolors = true
     
   use {'neoclide/coc.nvim', branch = 'release'} -- dropout menu and many ide features needs nodejs, uses(i configured) lsp server ccls
   require('coc_nvim_loader')
@@ -92,7 +93,7 @@ return require('packer').startup(function()
 
   use 'lukas-reineke/indent-blankline.nvim'
 
-  vim.opt.termguicolors = true
+  
   vim.cmd [[highlight IndentBlanklineIndent1 guifg=#404040]]
   -- vim.cmd [[highlight IndentBlanklineIndent2 guifg=#ffffff]]
 
