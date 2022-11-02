@@ -1,10 +1,6 @@
 lua require('plugins')
 
-" autocmd VimEnter * NvimTreeOpen
-
 autocmd VimEnter * call timer_start(10, { tid -> execute('wincmd p')})
-" autocmd VimEnter * call timer_start(1, { tid -> execute('colorscheme codedark')})
+autocmd VimEnter * call timer_start(10, { tid -> execute('Copilot dislabe')})
 
 set mouse=
-" :nunmap <buffer> <Up> 
-" :nunmap <buffer> <Down> 
