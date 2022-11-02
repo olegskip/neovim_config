@@ -77,8 +77,8 @@ return require('packer').startup(function()
   local keymap = vim.api.nvim_set_keymap
   keymap('n','<F2>', ':NvimTreeToggle<cr>', opts)
 
-  vim.keymap.set({'i', 'n'}, '<C-K>', function() require "line_functions".insert_line_above() end)
-  vim.keymap.set({'i', 'n'}, '<C-L>', function() require "line_functions".insert_line_below() end)
+  keymap("i", "<C-L>", "<Esc>o", {silent = true})
+  keymap("i", "<C-K>", "<Esc>O", {silent = true})
   vim.keymap.set({'i', 'n'}, '<C-UP>', function() require "line_functions".swap_with_line_above() end)
   vim.keymap.set({'i', 'n'}, '<C-DOWN>', function() require "line_functions".swap_with_line_below() end)
 
