@@ -6,6 +6,9 @@ vim.opt.updatetime = 100
 -- diagnostics appear/become resolved.
 vim.opt.signcolumn = "yes"
 
+vim.cmd('inoremap <expr> <Up> pumvisible() ? "coc#pum#stop()<Up>" : "<Up>"')
+vim.cmd('inoremap <expr> <Down> pumvisible() ? "coc#pum#stop()<Down>" : "<Down>"')
+
 local keyset = vim.keymap.set
 -- Auto complete
 -- function _G.check_back_space()
