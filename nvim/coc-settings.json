@@ -15,5 +15,6 @@
 			}
 		}
 	  }
-	}
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

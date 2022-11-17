@@ -176,3 +176,5 @@ keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
 keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 -- Resume latest coc list.
 keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+
+vim.g.python_recommended_style = false
