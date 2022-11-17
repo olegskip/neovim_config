@@ -11,7 +11,8 @@ return require('packer').startup(function()
 	vim.g.nocompatible = true
 		
 	use 'tomasiser/vim-code-dark'
-	use {'neoclide/coc.nvim', branch = 'release'} -- dropout menu and many ide features needs nodejs, uses(i configured) lsp server ccls
+	-- use {'neoclide/coc.nvim', branch = 'release'} -- dropout menu and many ide features needs nodejs, uses(i configured) lsp server ccls
+	use 'neovim/nvim-lspconfig'
 	use 'numToStr/Comment.nvim'
 	use 'vim-airline/vim-airline' -- status bar
 	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons'} -- tabline
@@ -31,7 +32,8 @@ return require('packer').startup(function()
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
-	require('coc_config')
+	-- require('coc_config')
+	require('lspconfig_config')
 	require('Comment').setup()
 	require('bufferline_config')
 	require('treesitter_config')
@@ -39,5 +41,7 @@ return require('packer').startup(function()
 	require('nvim-tree_config')
 	require('copilot_config')
 	require('keymaps_config')	
+
+	
 
 end)
