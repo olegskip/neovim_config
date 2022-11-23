@@ -2,6 +2,7 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	vim.cmd('set guicursor= ')-- to prevent changing cursor
+	vim.cmd('set relativenumber')
 	vim.opt.termguicolors = true
 	vim.o.number = true -- show numbers on the left
 	vim.o.pumheight = 10 -- limit dropout menu
@@ -49,7 +50,4 @@ return require('packer').startup(function()
 	require('nvim-tree_config')
 	require('copilot_config')
 	require('keymaps_config')	
-
-	
-
 end)

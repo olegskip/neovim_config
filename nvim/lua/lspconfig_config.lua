@@ -40,12 +40,11 @@ end
 -- Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
 vim.opt.signcolumn = "yes"
 
--- local capabilities = nil
--- local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if ok then
+local capabilities = nil
+local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if ok then
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
-	-- print("ok")
--- end
+end
 
 lspconfig['ccls'].setup({
 	capabilities = capabilities

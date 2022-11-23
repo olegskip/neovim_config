@@ -6,7 +6,7 @@ end
 bufferline.setup({
 	options = {
 		tab_size = 20,
-		diagnostics = "coc",
+		diagnostics = "nvim_lsp",
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			return "("..count..")"
 		end,
@@ -23,3 +23,7 @@ bufferline.setup({
 		close_command = "Bdelete! %d" -- from bufdelete plugin, origin bdelete spoils my layout(it sometimes jumps to nvim-tree after closing a bufffer)
 	}
 })
+
+-- TODO REWRITE IN LUA
+vim.cmd('nnoremap <silent>b] :BufferLineCycleNext<CR>')
+vim.cmd('nnoremap <silent>b[ :BufferLineCyclePrev<CR>')

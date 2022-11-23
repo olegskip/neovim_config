@@ -28,7 +28,10 @@ cmp.setup({
 	}, {
 		{ name = 'buffer' },
 	}),
-	preselect = cmp.PreselectMode.None
+	preselect = cmp.PreselectMode.None,
+	completion = {
+		autocomplete = false,
+	}
 })
 
 cmp.setup.cmdline({ '/', '?' }, {
