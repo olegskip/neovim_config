@@ -41,6 +41,7 @@ return require('packer').startup(function()
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim' -- for telescope
 	use 'BurntSushi/ripgrep' -- for telescope
+	use 'lewis6991/impatient.nvim'
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
@@ -54,4 +55,5 @@ return require('packer').startup(function()
 	require('copilot_config')
 	require('keymaps_config')
 	require('telescope_config')
+	require('impatient')
 end)
