@@ -38,6 +38,9 @@ return require('packer').startup(function()
 	use 'sakhnik/nvim-gdb'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'github/copilot.vim'
+	use 'nvim-telescope/telescope.nvim'
+	use 'nvim-lua/plenary.nvim' -- for telescope
+	use 'BurntSushi/ripgrep' -- for telescope
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
@@ -49,5 +52,6 @@ return require('packer').startup(function()
 	require('indent_blankline_config')
 	require('nvim-tree_config')
 	require('copilot_config')
-	require('keymaps_config')	
+	require('keymaps_config')
+	require('telescope_config')
 end)
