@@ -13,6 +13,7 @@ return require('packer').startup(function()
 		
 	use 'tomasiser/vim-code-dark'
 
+	use "williamboman/mason.nvim"
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -45,6 +46,7 @@ return require('packer').startup(function()
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
+	require("mason").setup()
 	require('nvim-cmp_config')
 	require('lspconfig_config')
 	require('Comment').setup()
