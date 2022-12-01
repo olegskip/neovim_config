@@ -45,6 +45,7 @@ return require('packer').startup(function()
 	use 'BurntSushi/ripgrep' -- for telescope
 	use 'lewis6991/impatient.nvim'
 	use 'stevearc/aerial.nvim'
+	use 'ahmedkhalf/project.nvim'
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
@@ -61,4 +62,5 @@ return require('packer').startup(function()
 	require('telescope_config')
 	require('impatient')
 	require('aerial_config')
+	require("project_nvim").setup()
 end)
