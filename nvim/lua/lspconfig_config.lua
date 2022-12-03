@@ -9,7 +9,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-
+vim.lsp.set_log_level("debug")
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -44,16 +44,19 @@ local capabilities = nil
 local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if ok then
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
+	capabilities.offsetEncoding = "utf-32"
 end
 
-lspconfig['ccls'].setup({
-	capabilities = capabilities
+lspconfig.ccls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach
 })
 
-lspconfig['pyright'].setup({
-	capabilities = capabilities
+lspconfig.pyright.setup({
+	capabilities = capabilities,
+	on_attach = on_attach
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		update_in_insert = true
+	update_in_insert = true
 })
