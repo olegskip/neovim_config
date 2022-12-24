@@ -45,6 +45,7 @@ return require('packer').startup(function()
 	use 'lewis6991/impatient.nvim'
 	use 'stevearc/aerial.nvim'
 	use 'ahmedkhalf/project.nvim'
+	use 'debugloop/telescope-undo.nvim'
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
