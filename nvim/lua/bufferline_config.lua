@@ -12,7 +12,7 @@ bufferline.setup({
 		end,
 		diagnostics_update_in_insert = true,
 		offsets = {
-			{
+			{	
 				filetype = "NvimTree",
 				text = "File Explorer",
 				text_align = "left",

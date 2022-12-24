@@ -42,7 +42,6 @@ return require('packer').startup(function()
 	use 'github/copilot.vim'
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim' -- for telescope
-	use 'BurntSushi/ripgrep' -- for telescope
 	use 'lewis6991/impatient.nvim'
 	use 'stevearc/aerial.nvim'
 	use 'ahmedkhalf/project.nvim'

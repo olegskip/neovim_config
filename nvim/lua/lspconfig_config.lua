@@ -44,7 +44,6 @@ local capabilities = nil
 local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if ok then
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
-	capabilities.offsetEncoding = "utf-32"
 end
 
 lspconfig.ccls.setup({
@@ -55,6 +54,12 @@ lspconfig.ccls.setup({
 lspconfig.pyright.setup({
 	capabilities = capabilities,
 	on_attach = on_attach
+})
+
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	lint = true
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

@@ -25,8 +25,6 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
-	}, {
-		{ name = 'buffer' },
 	}),
 	preselect = cmp.PreselectMode.None,
 	completion = {
