@@ -1,6 +1,10 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
+	function _G.executable(command)
+		return vim.fn.executable(command) ~= 0
+	end	
+
 	vim.cmd('set guicursor= ')-- to prevent changing cursor
 	vim.cmd('set relativenumber')
 	vim.opt.termguicolors = true
@@ -11,6 +15,8 @@ return require('packer').startup(function()
 	vim.o.shiftwidth = 4
 	vim.g.nocompatible = true
 	vim.o.clipboard = "unnamedplus"
+	-- Allow NeoVim to set terminal title
+	vim.o.title = true
 		
 	use 'tomasiser/vim-code-dark'
 
@@ -46,6 +52,7 @@ return require('packer').startup(function()
 	use 'stevearc/aerial.nvim'
 	use 'ahmedkhalf/project.nvim'
 	use 'debugloop/telescope-undo.nvim'
+	use 'simrat39/symbols-outline.nvim'
 	
 	vim.cmd("colorscheme codedark")
 	vim.cmd("highlight clear SignColumn") -- should be after theme
@@ -63,4 +70,5 @@ return require('packer').startup(function()
 	require('impatient')
 	require('aerial_config')
 	require("project_nvim").setup()
+	require("symbols-outline").setup()
 end)

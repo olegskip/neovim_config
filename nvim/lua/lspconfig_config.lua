@@ -3,6 +3,12 @@ if not ok then
 	return
 end
 
+vim.diagnostic.config {
+	virtual_text = true,
+	virtual_lines = true,
+	update_in_insert = true
+}
+
 -- default
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -46,22 +52,58 @@ if ok then
 	local capabilities = require('cmp_nvim_lsp').default_capabilities()
 end
 
-lspconfig.ccls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach
-})
+if executable('ccls') then
+	lspconfig.ccls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach
+	})
+	print("test")
+end
 
-lspconfig.pyright.setup({
-	capabilities = capabilities,
-	on_attach = on_attach
-})
+if executable('pyright') then
+	lspconfig.pyright.setup({
+		capabilities = capabilities,
+		on_attach = on_attach
+	})
+end
 
-lspconfig.gopls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	lint = true
+if executable('rust-analyzer') then
+	lspconfig.rust_analyzer.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		checkOnSave = {
+			command = "clippy",
+		},
+	})
+end
+
+-- Disable lsp-lines in insert mode for some languages(rust)
+local lsp_lines_helper = vim.api.nvim_create_augroup('LspLinesHelper', {})
+local lsp_virtual_text_status = vim.diagnostic.config().virtual_text
+local lsp_virtual_lines_status = vim.diagnostic.config().virtual_lines
+local lsp_lines_helper_pattern = {"*.rs"} 
+vim.api.nvim_create_autocmd('InsertEnter', {
+	group = lsp_lines_helper,
+	pattern = lsp_lines_helper_pattern,
+	callback = function()
+		vim.diagnostic.config {
+			virtual_text = false,
+			virtual_lines = false,
+		}
+		-- To update cursor position
+		vim.cmd [[ normal "hl" ]]
+	end
+})
+vim.api.nvim_create_autocmd('InsertLeave', {
+	group = lsp_lines_helper,
+	pattern = lsp_lines_helper_pattern,
+	callback = function()
+		vim.diagnostic.config {
+			virtual_text = lsp_virtual_text_status,
+			virtual_lines = lsp_virtual_lines_status,
+		}
+	end
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	update_in_insert = true
 })
