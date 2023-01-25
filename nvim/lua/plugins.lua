@@ -14,13 +14,13 @@ return require('packer').startup(function()
 	vim.o.tabstop = 4
 	vim.o.shiftwidth = 4
 	vim.g.nocompatible = true
-	vim.o.clipboard = "unnamedplus"
+	vim.o.clipboard = 'unnamedplus'
 	-- Allow NeoVim to set terminal title
 	vim.o.title = true
 		
 	use 'tomasiser/vim-code-dark'
 
-	use "williamboman/mason.nvim"
+	use 'williamboman/mason.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -32,7 +32,7 @@ return require('packer').startup(function()
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'numToStr/Comment.nvim'
 	use 'vim-airline/vim-airline' -- status bar
-	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'kyazdani42/nvim-web-devicons'} -- tabline
+	use {'akinsho/bufferline.nvim', tag = 'v3.*', requires = 'kyazdani42/nvim-web-devicons'} -- tabline
 	use 'famiu/bufdelete.nvim' -- for Bdelete
 	use 'p00f/nvim-ts-rainbow'
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -53,10 +53,11 @@ return require('packer').startup(function()
 	use 'ahmedkhalf/project.nvim'
 	use 'debugloop/telescope-undo.nvim'
 	use 'simrat39/symbols-outline.nvim'
+	use 'RRethy/nvim-treesitter-textsubjects'
 	
-	vim.cmd("colorscheme codedark")
-	vim.cmd("highlight clear SignColumn") -- should be after theme
-	require("mason").setup()
+	vim.cmd('colorscheme codedark')
+	vim.cmd('highlight clear SignColumn') -- should be after theme
+	require('mason').setup()
 	require('nvim-cmp_config')
 	require('lspconfig_config')
 	require('Comment').setup()
@@ -69,6 +70,6 @@ return require('packer').startup(function()
 	require('telescope_config')
 	require('impatient')
 	require('aerial_config')
-	require("project_nvim").setup()
-	require("symbols-outline").setup()
+	require('project_nvim').setup()
+	require('symbols-outline').setup()
 end)
