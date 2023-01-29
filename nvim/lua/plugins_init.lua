@@ -4,19 +4,6 @@ return require('packer').startup(function()
 	function _G.executable(command)
 		return vim.fn.executable(command) ~= 0
 	end	
-
-	vim.cmd('set guicursor= ')-- to prevent changing cursor
-	vim.cmd('set relativenumber')
-	vim.opt.termguicolors = true
-	vim.o.number = true -- show numbers on the left
-	vim.o.pumheight = 10 -- limit dropout menu
-	vim.o.autoindent = true
-	vim.o.tabstop = 4
-	vim.o.shiftwidth = 4
-	vim.g.nocompatible = true
-	vim.o.clipboard = 'unnamedplus'
-	-- Allow NeoVim to set terminal title
-	vim.o.title = true
 		
 	use 'tomasiser/vim-code-dark'
 
@@ -55,21 +42,19 @@ return require('packer').startup(function()
 	use 'simrat39/symbols-outline.nvim'
 	use 'RRethy/nvim-treesitter-textsubjects'
 	
-	vim.cmd('colorscheme codedark')
-	vim.cmd('highlight clear SignColumn') -- should be after theme
 	require('mason').setup()
-	require('nvim-cmp_config')
-	require('lspconfig_config')
+	require('plugins/nvim-cmp_config')
+	require('plugins/lspconfig_config')
 	require('Comment').setup()
-	require('bufferline_config')
-	require('treesitter_config')
-	require('indent_blankline_config')
-	require('nvim-tree_config')
-	require('copilot_config')
-	require('keymaps_config')
-	require('telescope_config')
+	require('plugins/bufferline_config')
+	require('plugins/treesitter_config')
+	require('plugins/indent_blankline_config')
+	require('plugins/nvim-tree_config')
+	require('plugins/copilot_config')
+	require('plugins/keymaps_config')
+	require('plugins/telescope_config')
 	require('impatient')
-	require('aerial_config')
+	require('plugins/aerial_config')
 	require('project_nvim').setup()
 	require('symbols-outline').setup()
 end)

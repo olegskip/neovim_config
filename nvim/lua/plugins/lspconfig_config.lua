@@ -57,7 +57,6 @@ if executable('ccls') then
 		capabilities = capabilities,
 		on_attach = on_attach
 	})
-	print("test")
 end
 
 if executable('pyright') then
