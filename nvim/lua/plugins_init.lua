@@ -7,7 +7,6 @@ return require('packer').startup(function()
 		
 	use 'tomasiser/vim-code-dark'
 
-	use 'williamboman/mason.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -42,7 +41,6 @@ return require('packer').startup(function()
 	use 'simrat39/symbols-outline.nvim'
 	use 'RRethy/nvim-treesitter-textsubjects'
 	
-	require('mason').setup()
 	require('plugins/nvim-cmp_config')
 	require('plugins/lspconfig_config')
 	require('Comment').setup()
