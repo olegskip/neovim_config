@@ -29,7 +29,6 @@ return require('packer').startup(function()
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)	
 	}
-	use 'sakhnik/nvim-gdb'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'github/copilot.vim'
 	use 'nvim-telescope/telescope.nvim'
@@ -41,6 +40,11 @@ return require('packer').startup(function()
 	use 'simrat39/symbols-outline.nvim'
 	use 'RRethy/nvim-treesitter-textsubjects'
 	
+	use 'mfussenegger/nvim-dap'
+	use 'rcarriga/nvim-dap-ui'
+	use 'theHamsta/nvim-dap-virtual-text'
+
+	require('impatient')
 	require('plugins/nvim-cmp_config')
 	require('plugins/lspconfig_config')
 	require('Comment').setup()
@@ -51,8 +55,8 @@ return require('packer').startup(function()
 	require('plugins/copilot_config')
 	require('plugins/keymaps_config')
 	require('plugins/telescope_config')
-	require('impatient')
 	require('plugins/aerial_config')
 	require('project_nvim').setup()
 	require('symbols-outline').setup()
+	require('plugins/dap_config')
 end)
