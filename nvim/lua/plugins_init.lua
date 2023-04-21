@@ -39,7 +39,8 @@ return require('packer').startup(function()
 	use 'debugloop/telescope-undo.nvim'
 	use 'simrat39/symbols-outline.nvim'
 	use 'RRethy/nvim-treesitter-textsubjects'
-	
+	use 'p00f/godbolt.nvim'
+
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
 	use 'theHamsta/nvim-dap-virtual-text'
@@ -58,5 +59,6 @@ return require('packer').startup(function()
 	require('plugins/aerial_config')
 	require('project_nvim').setup()
 	require('symbols-outline').setup()
+	require('godbolt').setup()
 	require('plugins/dap_config')
 end)
