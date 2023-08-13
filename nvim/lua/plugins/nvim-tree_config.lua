@@ -14,12 +14,4 @@ nvimtree.setup({
 	open_on_setup = false,
 	open_on_setup_file = false,
 	open_on_tab = false,
-
-	-- for projects plugin
-	sync_root_with_cwd = true,
-	respect_buf_cwd = true,
-	update_focused_file = {
-		enable = true,
-		update_root = true
-	}
 })

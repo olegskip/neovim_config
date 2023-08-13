@@ -34,7 +34,6 @@ return require('packer').startup(function()
 	use 'nvim-lua/plenary.nvim' -- for telescope
 	use 'lewis6991/impatient.nvim'
 	use 'stevearc/aerial.nvim'
-	use 'ahmedkhalf/project.nvim'
 	use 'debugloop/telescope-undo.nvim'
 	use 'simrat39/symbols-outline.nvim'
 	use 'RRethy/nvim-treesitter-textsubjects'
@@ -55,8 +54,6 @@ return require('packer').startup(function()
 	require('plugins/keymaps_config')
 	require('plugins/telescope_config')
 	require('plugins/aerial_config')
-	require('project_nvim').setup()
 	require('symbols-outline').setup()
-	require('godbolt').setup()
 	require('plugins/dap_config')
 end)
