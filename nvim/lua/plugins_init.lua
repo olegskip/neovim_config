@@ -30,7 +30,6 @@ return require('packer').startup(function()
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)	
 	}
 	use 'lukas-reineke/indent-blankline.nvim'
-	use 'github/copilot.vim'
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim' -- for telescope
 	use 'lewis6991/impatient.nvim'
@@ -53,7 +52,6 @@ return require('packer').startup(function()
 	require('plugins/treesitter_config')
 	require('plugins/indent_blankline_config')
 	require('plugins/nvim-tree_config')
-	require('plugins/copilot_config')
 	require('plugins/keymaps_config')
 	require('plugins/telescope_config')
 	require('plugins/aerial_config')

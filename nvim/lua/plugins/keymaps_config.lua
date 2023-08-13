@@ -5,3 +5,4 @@ vim.keymap.set({'i', 'n'}, '<C-UP>', function() require "line_functions".swap_wi
 vim.keymap.set({'i', 'n'}, '<C-DOWN>', function() require "line_functions".swap_with_line_below() end)
 
 vim.keymap.set('n','<C-Z>', ':undo<CR>')
+vim.keymap.set({'i', 'n'}, '<C-F>', function() vim.lsp.buf.format() end)

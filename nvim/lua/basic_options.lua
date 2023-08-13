@@ -14,6 +14,6 @@ opt.shiftwidth = 4
 vim.g.nocompatible = true
 opt.clipboard = 'unnamedplus' -- enables copying/pasting from/to nvim
 opt.title = true -- allow NeoVim to set terminal title
-
+vim.o.updatetime = 50
 vim.cmd.colorscheme({"codedark"})
 vim.cmd('highlight clear SignColumn') -- apply the colorsheme to SignColumn, should be after executed after colorscheme applying 
