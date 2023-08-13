@@ -13,9 +13,9 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/nvim-cmp'
+	use 'saadparwaiz1/cmp_luasnip'
 
 	use 'L3MON4D3/LuaSnip'
-	use 'saadparwaiz1/cmp_luasnip'
 	use 'numToStr/Comment.nvim'
 	use 'vim-airline/vim-airline' -- status bar
 	use {'akinsho/bufferline.nvim', tag = 'v3.*', requires = 'kyazdani42/nvim-web-devicons'} -- tabline
@@ -43,6 +43,8 @@ return require('packer').startup(function()
 	use 'rcarriga/nvim-dap-ui'
 	use 'theHamsta/nvim-dap-virtual-text'
 
+	require('keymaps_config')
+
 	require('impatient')
 	require('plugins/nvim-cmp_config')
 	require('plugins/lspconfig_config')
@@ -51,7 +53,6 @@ return require('packer').startup(function()
 	require('plugins/treesitter_config')
 	require('plugins/indent_blankline_config')
 	require('plugins/nvim-tree_config')
-	require('plugins/keymaps_config')
 	require('plugins/telescope_config')
 	require('plugins/aerial_config')
 	require('symbols-outline').setup()
