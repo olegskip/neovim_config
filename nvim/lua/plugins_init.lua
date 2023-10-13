@@ -5,7 +5,14 @@ return require('packer').startup(function()
 		return vim.fn.executable(command) ~= 0
 	end	
 		
-	use 'tomasiser/vim-code-dark'
+	use { 'catppuccin/nvim', as = 'catppuccin' }
+	require('catppuccin').setup({
+		flavour = 'macchiato', -- latte, frappe, macchiato, mocha
+		background = { -- :h background
+			light = 'macchiato',
+			dark = 'macchiato',
+    	},
+	})
 
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -14,8 +21,8 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/nvim-cmp'
 	use 'saadparwaiz1/cmp_luasnip'
-
 	use 'L3MON4D3/LuaSnip'
+
 	use 'numToStr/Comment.nvim'
 	use 'vim-airline/vim-airline' -- status bar
 	use {'akinsho/bufferline.nvim', tag = 'v3.*', requires = 'kyazdani42/nvim-web-devicons'} -- tabline
@@ -37,7 +44,7 @@ return require('packer').startup(function()
 	use 'debugloop/telescope-undo.nvim'
 	use 'simrat39/symbols-outline.nvim'
 	use 'RRethy/nvim-treesitter-textsubjects'
-	use 'p00f/godbolt.nvim'
+    use 'kylechui/nvim-surround'
 
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
@@ -56,5 +63,6 @@ return require('packer').startup(function()
 	require('plugins/telescope_config')
 	require('plugins/aerial_config')
 	require('symbols-outline').setup()
+    require('nvim-surround').setup()
 	require('plugins/dap_config')
 end)

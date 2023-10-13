@@ -1,12 +1,14 @@
-local ok, indent_blankline = pcall(require, "indent_blankline")
+local ok, ibl = pcall(require, "ibl")
 if not ok then
 	return
 end
 
 vim.cmd("highlight IndentBlanklineIndent1 guifg=#404040")
-indent_blankline.setup({
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
+ibl.setup({
+    indent = {
+        smart_indent_cap = false -- show all indentation, not just based on surrounding
     },
-    space_char_highlight_list = " ",
+    scope = {
+        enabled = false;
+    }
 })

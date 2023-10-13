@@ -75,6 +75,12 @@ if executable('rust-analyzer') then
 		},
 	})
 end
+if executable('haskell-language-server') then
+	lspconfig.hls.setup{
+		capabilities = capabilities,
+		on_attach = on_attach
+	}
+end
 
 -- Disable lsp-lines in insert mode for some languages(rust)
 local lsp_lines_helper = vim.api.nvim_create_augroup('LspLinesHelper', {})
