@@ -18,3 +18,14 @@ opt.title = true -- allow NeoVim to set terminal title
 vim.o.updatetime = 200
 vim.cmd.colorscheme({'catppuccin'})
 vim.cmd('highlight clear SignColumn') -- apply the colorsheme to SignColumn, should be after executed after colorscheme applying 
+
+vim.api.nvim_create_autocmd('BufHidden', {
+  desc = 'Delete [No Name] buffers',
+  callback = function(data)
+    if data.file == '' and vim.bo[data.buf].buftype == '' and not vim.bo[data.buf].modified then
+      vim.schedule(function()
+        pcall(vim.api.nvim_buf_delete, data.buf, {})
+      end)
+    end
+  end,
+})
