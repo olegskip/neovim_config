@@ -15,7 +15,7 @@ vim.opt.expandtab = true
 vim.g.nocompatible = true
 opt.clipboard = 'unnamedplus' -- enables copying/pasting from/to nvim
 opt.title = true -- allow NeoVim to set terminal title
-vim.o.updatetime = 200
+vim.o.updatetime = 300
 vim.cmd.colorscheme({'catppuccin'})
 vim.cmd('highlight clear SignColumn') -- apply the colorsheme to SignColumn, should be after executed after colorscheme applying 
 
