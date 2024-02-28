@@ -50,6 +50,8 @@ return require('packer').startup(function()
 	use 'rcarriga/nvim-dap-ui'
 	use 'theHamsta/nvim-dap-virtual-text'
 
+    use 'lewis6991/gitsigns.nvim'
+
 	require('keymaps_config')
 
 	require('impatient')
@@ -65,4 +67,5 @@ return require('packer').startup(function()
 	require('symbols-outline').setup()
     require('nvim-surround').setup()
 	require('plugins/dap_config')
+    require('plugins/gitsings_config')
 end)

@@ -62,7 +62,22 @@ end
 if executable('pyright') then
 	lspconfig.pyright.setup({
 		capabilities = capabilities,
-		on_attach = on_attach
+		on_attach = on_attach,
+        settings = {
+            python = {
+                analysis = {
+                    -- Ignore all files for analysis to exclusively use Ruff for linting
+                    ignore = { '*' },
+                }
+            }
+        }
+	})
+end
+
+if executable('ruff') then
+	lspconfig.ruff_lsp.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
 	})
 end
 

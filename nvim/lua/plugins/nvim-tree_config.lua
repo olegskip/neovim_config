@@ -13,5 +13,9 @@ nvimtree.setup({
 	hijack_cursor = false,
 	open_on_setup = false,
 	open_on_setup_file = false,
-	open_on_tab = false,
+    open_on_tab = false,
 })
+
+vim.keymap.set('n','<F2>', ':NvimTreeToggle<cr>')
+vim.keymap.set('n','<F3>', ':NvimTreeFindFile!<cr>') -- ! forces to find the file even it isn't in CWD/**/
+
