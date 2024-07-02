@@ -15,7 +15,6 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-vim.lsp.set_log_level("debug")
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -54,7 +53,13 @@ end
 
 if executable('ccls') then
 	lspconfig.ccls.setup({
-		capabilities = capabilities,
+        capabilities = (function()
+            -- It fixes duplicates like subprocess imported but not used from Ruff and "subprocess" is not accessed by removing Pyright's ones while still benefiting from its type diagnostics.
+            -- https://github.com/astral-sh/ruff-lsp/issues/384
+            local local_capabilities = vim.lsp.protocol.make_client_capabilities()
+            local_capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+            return local_capabilities
+        end)(),
 		on_attach = on_attach
 	})
 end
@@ -78,6 +83,11 @@ if executable('ruff') then
 	lspconfig.ruff_lsp.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+        init_options = {
+            settings = {
+                preview=True
+            }
+        }
 	})
 end
 

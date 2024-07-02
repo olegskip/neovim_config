@@ -25,7 +25,7 @@ return require('packer').startup(function()
 
 	use 'numToStr/Comment.nvim'
 	use 'vim-airline/vim-airline' -- status bar
-	use {'akinsho/bufferline.nvim', tag = 'v3.*', requires = 'kyazdani42/nvim-web-devicons'} -- tabline
+	use {'akinsho/bufferline.nvim', branch = 'main', requires = 'kyazdani42/nvim-web-devicons'} -- tabline
 	use 'famiu/bufdelete.nvim' -- for Bdelete
 	use 'p00f/nvim-ts-rainbow'
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
